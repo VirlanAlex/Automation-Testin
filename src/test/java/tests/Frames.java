@@ -1,5 +1,6 @@
 package tests;
 
+import helpMethods.ElementsMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,24 +10,22 @@ import org.testng.annotations.Test;
 
 public class Frames {
     public WebDriver driver;
+    ElementsMethod elementsMethod;
 
     @Test
 
     public void metodaTest() {
-        //Deschidem un browser
-
         driver = new ChromeDriver();
-
-        //Accesam un URL
-
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
+        elementsMethod = new ElementsMethod(driver);
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement framesMeniu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
 
         js.executeScript("arguments[0].click();", framesMeniu);
         WebElement tabButton = driver.findElement(By.xpath("//span[text()='Frames']"));
-        tabButton.click();
+        elementsMethod.clickElement(tabButton);
 
         driver.switchTo().frame("frame1");
         WebElement sampleTextElement = driver.findElement(By.id("sampleHeading"));

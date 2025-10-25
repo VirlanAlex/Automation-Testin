@@ -21,20 +21,10 @@ public class TabWindowTest {
 
     public void metodaTest () {
 
-        //Deschidem un browser
-
         driver = new ChromeDriver();
-
-        //Accesam un URL
-
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
         elementsMethod = new ElementsMethod(driver);
-
-//        WebElement alertMeniu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-//
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].click();", alertMeniu);
 
         WebElement alertMenu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
         elementsMethod.javaScriptElement(alertMenu);
@@ -43,7 +33,7 @@ public class TabWindowTest {
         elementsMethod.javaScriptElement(tabButton);
 
         WebElement newTabButton = driver.findElement(By.id("tabButton"));
-        newTabButton.click();
+        elementsMethod.clickElement(newTabButton);
 
         System.out.println("URL-ul paginii curent este " +driver.getCurrentUrl());
         List<String> tabsList = new ArrayList<>(driver.getWindowHandles());
@@ -58,7 +48,6 @@ public class TabWindowTest {
         List<String> newWindowList = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(newWindowList.get(1));
 
-        driver.quit();
 
 
     }
