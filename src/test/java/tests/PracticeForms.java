@@ -1,5 +1,6 @@
 package tests;
 
+import helpMethods.ElementsMethod;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,68 +20,58 @@ import java.util.List;
 public class PracticeForms {
 
     public WebDriver driver;
+    ElementsMethod elementsMethod;
 
 
     @Test
 
     public void metodaTest() {
 
-        //Deschidem un browser
-
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-        //Accesam un URL
-
         driver.get("https://demoqa.com/");
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        elementsMethod = new ElementsMethod(driver);
 
         WebElement formsMeniu = driver.findElement(By.xpath("//h5[text()='Forms']"));
-        formsMeniu.click();
+        elementsMethod.clickElement(formsMeniu);
 
         WebElement practiceForm = driver.findElement(By.xpath("//span[text()='Practice Form']"));
-        practiceForm.click();
+        elementsMethod.clickElement(practiceForm);
 
         WebElement firstNameElement = driver.findElement(By.id("firstName"));
-        String firstName = "Johny";
-        firstNameElement.sendKeys(firstName);
+        elementsMethod.fillElement(firstNameElement, "Johny");
 
         WebElement lastNameElement = driver.findElement(By.id("lastName"));
-        String lastName = "Cash";
-        lastNameElement.sendKeys(lastName);
+        elementsMethod.fillElement(lastNameElement, "Cash");
 
         WebElement userEmailElement = driver.findElement(By.id("userEmail"));
-        String userEmail = "johnycash12n@gmail.com";
-        userEmailElement.sendKeys(userEmail);
+        elementsMethod.fillElement(userEmailElement, "johnycash12n@gmail.com");
 
         WebElement mobileElement = driver.findElement(By.id("userNumber"));
-        String mobile = "0745213252";
-        mobileElement.sendKeys(mobile);
-
-//        Date of birth interaction
+        elementsMethod.fillElement(mobileElement, "0745213252");
 
         WebElement dateOfBirth = driver.findElement(By.id("dateOfBirthInput"));
-        dateOfBirth.click();
+        elementsMethod.clickElement(dateOfBirth);
 
         WebElement monthElement = driver.findElement(By.className("react-datepicker__month-select"));
-        Select monthSelect=new Select(monthElement);
+        Select monthSelect = new Select(monthElement);
         String monthValue = "January";
         monthSelect.selectByVisibleText(monthValue);
 
         WebElement yearElement = driver.findElement(By.className("react-datepicker__year-select"));
-        Select yearSelect=new Select(yearElement);
+        Select yearSelect = new Select(yearElement);
         String yearValue = "2030";
         yearSelect.selectByVisibleText(yearValue);
 
         String dayValue = "15";
         List<WebElement> daysList = driver.findElements(By.xpath("//div[contains(@class,'react-datepicker__day--0') and not(contains(@class,'outside-month'))]"));
-        for (int index=0;index<daysList.size();index++){
-            if (daysList.get(index).getText().equals(dayValue)){
+        for (int index = 0; index < daysList.size(); index++) {
+            if (daysList.get(index).getText().equals(dayValue)) {
                 daysList.get(index).click();
                 break;
             }
         }
-
 
 
 //        WebElement currentAdressElement = driver.findElement(By.id("currentAddress"));
@@ -178,8 +169,6 @@ public class PracticeForms {
 //        Assert.assertEquals(valueList.get(1).getText(),userEmail);
 //        Assert.assertEquals(valueList.get(2).getText(),genderValue);
 //        Assert.assertEquals(valueList.get(3).getText(),mobile);
-
-
 
 
     }

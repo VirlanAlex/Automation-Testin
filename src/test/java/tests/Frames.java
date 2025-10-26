@@ -2,7 +2,6 @@ package tests;
 
 import helpMethods.ElementsMethod;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,10 +19,9 @@ public class Frames {
         driver.manage().window().maximize();
         elementsMethod = new ElementsMethod(driver);
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement framesMeniu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
+        elementsMethod.javaScriptElement(framesMeniu);
 
-        js.executeScript("arguments[0].click();", framesMeniu);
         WebElement tabButton = driver.findElement(By.xpath("//span[text()='Frames']"));
         elementsMethod.clickElement(tabButton);
 

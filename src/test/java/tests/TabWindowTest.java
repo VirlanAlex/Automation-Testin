@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -19,9 +20,14 @@ public class TabWindowTest {
 
     @Test
 
-    public void metodaTest () {
+    public void metodaTest() {
 
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--incognito");
+//        options.addArguments("--disable-popup-blocking");
+//        options.addArguments("--disable-notifications");
+//        options.addArguments("--disable-extensions");
+        driver = new ChromeDriver(options);
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
         elementsMethod = new ElementsMethod(driver);
@@ -35,19 +41,18 @@ public class TabWindowTest {
         WebElement newTabButton = driver.findElement(By.id("tabButton"));
         elementsMethod.clickElement(newTabButton);
 
-        System.out.println("URL-ul paginii curent este " +driver.getCurrentUrl());
+        System.out.println(" URL-ul paginii curent este " + driver.getCurrentUrl());
         List<String> tabsList = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabsList.get(1));
 
-        System.out.println("URL-ul paginii curent este " +driver.getCurrentUrl());
+        System.out.println(" URL-ul paginii curent este " + driver.getCurrentUrl());
         driver.close();
         driver.switchTo().window(tabsList.get(0));
 
         WebElement newWindowElement = driver.findElement(By.id("windowButton"));
-        newWindowElement.click();
+        elementsMethod.javaScriptElement(newWindowElement);
         List<String> newWindowList = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(newWindowList.get(1));
-
 
 
     }
