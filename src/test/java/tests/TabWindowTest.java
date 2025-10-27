@@ -54,6 +54,5 @@ public class TabWindowTest {
         List<String> newWindowList = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(newWindowList.get(1));
 
-
     }
 }
