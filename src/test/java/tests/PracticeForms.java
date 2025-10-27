@@ -30,7 +30,6 @@ public class PracticeForms {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         elementsMethod = new ElementsMethod(driver);
 
         WebElement formsMeniu = driver.findElement(By.xpath("//h5[text()='Forms']"));

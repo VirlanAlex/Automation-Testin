@@ -36,4 +36,5 @@ public class ElementsMethod {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
+
 }
