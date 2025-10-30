@@ -54,20 +54,16 @@ public class PracticeForms {
         elementsMethod.clickElement(dateOfBirth);
 
         WebElement monthElement = driver.findElement(By.className("react-datepicker__month-select"));
-        Select monthSelect = new Select(monthElement);
-        String monthValue = "January";
-        monthSelect.selectByVisibleText(monthValue);
+        elementsMethod.dropDownElement(monthElement, "January");
 
         WebElement yearElement = driver.findElement(By.className("react-datepicker__year-select"));
-        Select yearSelect = new Select(yearElement);
-        String yearValue = "2030";
-        yearSelect.selectByVisibleText(yearValue);
+        elementsMethod.dropDownElement(yearElement, "2030");
 
         String dayValue = "15";
         List<WebElement> daysList = driver.findElements(By.xpath("//div[contains(@class,'react-datepicker__day--0') and not(contains(@class,'outside-month'))]"));
         for (int index = 0; index < daysList.size(); index++) {
             if (daysList.get(index).getText().equals(dayValue)) {
-                daysList.get(index).click();
+                elementsMethod.clickElement(daysList.get(index));
                 break;
             }
         }

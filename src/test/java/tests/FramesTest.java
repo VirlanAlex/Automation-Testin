@@ -7,8 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
+import pages.FramesPage;
+import pages.HomePage;
 
-public class Frames {
+public class FramesTest {
     public WebDriver driver;
     ElementsMethod elementsMethod;
     FrameMethods frameMethods;
@@ -22,17 +24,11 @@ public class Frames {
         elementsMethod = new ElementsMethod(driver);
         frameMethods = new FrameMethods(driver);
 
-        WebElement framesMeniu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementsMethod.javaScriptElement(framesMeniu);
+        HomePage homePage = new HomePage(driver);
+        homePage.clickAlertFrameWindow();
 
-        WebElement tabButton = driver.findElement(By.xpath("//span[text()='Frames']"));
-        elementsMethod.clickElement(tabButton);
-
-        frameMethods.switchToSpecificFrame("frame1");
-
-        frameMethods.switchToParentFrame();
-
-        frameMethods.switchToSpecificFrame("frame2");
-
+        FramesPage frames = new FramesPage(driver);
+        frames.clickFramesButton();
+        frames.switchFrames("frame1", "frame2");
     }
 }

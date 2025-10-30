@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.AlertWindows;
+import pages.HomePage;
 
 import java.time.Duration;
 
@@ -26,36 +28,13 @@ public class AlertTest {
         driver.manage().window().maximize();
         elementsMethod = new ElementsMethod(driver);
         alertMethods = new AlertMethods(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        WebElement alertMeniu = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementsMethod.javaScriptElement(alertMeniu);
+        HomePage homePage = new HomePage(driver);
+        homePage.clickAlertFrameWindow();
 
-        WebElement tabButton = driver.findElement(By.xpath("//span[text()='Alerts']"));
-        elementsMethod.clickElement(tabButton);
-
-        WebElement firstAlertElement = driver.findElement(By.id("alertButton"));
-        elementsMethod.clickElement(firstAlertElement);
-        alertMethods.acceptAlert();
-
-        WebElement secondAlert = driver.findElement(By.id("timerAlertButton"));
-        elementsMethod.clickElement(secondAlert);
-
-        alertMethods.acceptAlert();
-
-        WebElement thirdAlertElement = driver.findElement(By.id("confirmButton"));
-        elementsMethod.clickElement(thirdAlertElement);
-
-        boolean chooseAccept = true;  // pune false daca vrei Cancel
-        alertMethods.acceptAlert(chooseAccept);
-
-        WebElement textThirdAlert = driver.findElement(By.id("confirmResult"));
-        String actualText = textThirdAlert.getText();
-        alertMethods.verifyConfirmAlert(actualText, true);
-
-        WebElement fourthAlertElement = driver.findElement(By.id("promtButton"));
-        elementsMethod.clickElement(fourthAlertElement);
-        alertMethods.fillAlert("Buna ziua");
+        AlertWindows alertWindows = new AlertWindows(driver);
+        alertWindows.clickAlert();
+        alertWindows.dealAlertProcess();
 
     }
 }

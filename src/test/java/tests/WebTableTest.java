@@ -15,7 +15,6 @@ public class WebTableTest {
     public WebDriver driver;
     ElementsMethod elementsMethod;
 
-
     @Test
 
     public void metodaTest() {
@@ -35,33 +34,32 @@ public class WebTableTest {
         System.out.println(" Dimensiunea tabelului este " + continutTabel.size());
         Assert.assertEquals(continutTabel.size(), 3, " Marimea tabelului nu este 3 ");
 
-// Definim un element
         WebElement addElement = driver.findElement(By.id("addNewRecordButton"));
         elementsMethod.clickElement(addElement);
 
-// First Name
         WebElement firstNameElement = driver.findElement(By.id("firstName"));
-        elementsMethod.fillElement(firstNameElement, "Johny");
+        String firstName = "Johny";
+        elementsMethod.fillElement(firstNameElement, firstName);
 
-// Last Name
         WebElement lastNameElement = driver.findElement(By.id("lastName"));
-        elementsMethod.fillElement(lastNameElement, "Cash");
+        String lastName = "Cash";
+        elementsMethod.fillElement(lastNameElement, lastName);
 
-// Email
         WebElement userEmailElement = driver.findElement(By.id("userEmail"));
-        elementsMethod.fillElement(userEmailElement, "johnycash12n@gmail.com");
+        String userEmai = "johnycash12n@gmail.com";
+        elementsMethod.fillElement(userEmailElement, userEmai);
 
-// Age
         WebElement ageElement = driver.findElement(By.id("age"));
-        elementsMethod.fillElement(ageElement, "31");
+        String age = "31";
+        elementsMethod.fillElement(ageElement, age);
 
-// Salary
         WebElement salaryElement = driver.findElement(By.id("salary"));
-        elementsMethod.fillElement(salaryElement, "5000");
+        String salary = "5000";
+        elementsMethod.fillElement(salaryElement, salary);
 
-// Department
         WebElement departmentElement = driver.findElement(By.id("department"));
-        elementsMethod.fillElement(departmentElement, "Discogs");
+        String department = "Discogs";
+        elementsMethod.fillElement(departmentElement, department);
 
         WebElement submitButton = driver.findElement(By.id("submit"));
         elementsMethod.clickElement(submitButton);
@@ -74,12 +72,12 @@ public class WebTableTest {
 //       Validam valorile pe care le-am introdus
 
         String continutRand = continutTabelNou.get(3).getText();
-        Assert.assertTrue(continutRand.contains("Johny"), "Randul nu contine first name");
-        Assert.assertTrue(continutRand.contains("Cash"), "Randul nu contine last name");
-        Assert.assertTrue(continutRand.contains("johnycash12n@gmail.com"), "Randul nu contine email");
-        Assert.assertTrue(continutRand.contains("31"), "Randul nu contine age");
-        Assert.assertTrue(continutRand.contains("5000"), "Randul nu contine salary");
-        Assert.assertTrue(continutRand.contains("Discogs"), "Randul nu contine department");
+        Assert.assertTrue(continutRand.contains(firstName), "Randul nu contine first name");
+        Assert.assertTrue(continutRand.contains(lastName), "Randul nu contine last name");
+        Assert.assertTrue(continutRand.contains(userEmai), "Randul nu contine email");
+        Assert.assertTrue(continutRand.contains(age), "Randul nu contine age");
+        Assert.assertTrue(continutRand.contains(salary), "Randul nu contine salary");
+        Assert.assertTrue(continutRand.contains(department), "Randul nu contine department");
 
         //Functionalitate de edit
 
