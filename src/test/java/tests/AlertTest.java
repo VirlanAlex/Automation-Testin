@@ -4,13 +4,9 @@ import helpMethods.AlertMethods;
 import helpMethods.ElementsMethod;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AlertWindows;
 import pages.HomePage;
-
-import java.time.Duration;
 
 public class AlertTest {
 
