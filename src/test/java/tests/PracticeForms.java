@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import sharedData.SharedData;
 
 import javax.swing.text.Element;
 import java.io.File;
@@ -17,19 +18,13 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
-public class PracticeForms {
+public class PracticeForms extends SharedData {
 
-    public WebDriver driver;
     ElementsMethod elementsMethod;
 
-
     @Test
-
     public void metodaTest() {
 
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://demoqa.com/");
         elementsMethod = new ElementsMethod(driver);
 
         WebElement formsMeniu = driver.findElement(By.xpath("//h5[text()='Forms']"));

@@ -7,10 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.AlertWindows;
 import pages.HomePage;
+import sharedData.SharedData;
 
-public class AlertTest {
+public class AlertTest extends SharedData {
 
-    public WebDriver driver;
     ElementsMethod elementsMethod;
     AlertMethods alertMethods;
 
@@ -19,9 +19,6 @@ public class AlertTest {
 
     public void metodaTest() {
 
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
         elementsMethod = new ElementsMethod(driver);
         alertMethods = new AlertMethods(driver);
 

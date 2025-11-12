@@ -10,10 +10,11 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 import pages.WebTablesPage;
+import sharedData.SharedData;
 
 import java.util.List;
 
-public class WebTableTest {
+public class WebTableTest extends SharedData {
 
     public WebDriver driver;
     ElementsMethod elementsMethod;
