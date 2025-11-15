@@ -9,15 +9,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.FramesPage;
 import pages.HomePage;
-import sharedData.SharedData;
+import sharedData.ShareData;
 
-public class FramesTest extends SharedData {
-
+public class FramesTest extends ShareData {
     ElementsMethod elementsMethod;
     FrameMethods frameMethods;
 
     @Test
+
     public void metodaTest() {
+        //Deschidem un browser
+
         elementsMethod = new ElementsMethod(driver);
         frameMethods = new FrameMethods(driver);
 

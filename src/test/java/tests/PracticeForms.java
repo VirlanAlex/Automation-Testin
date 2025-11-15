@@ -3,32 +3,25 @@ package tests;
 import helpMethods.ElementsMethod;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import sharedData.SharedData;
+import sharedData.ShareData;
 
-import javax.swing.text.Element;
-import java.io.File;
-import java.security.Key;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Arrays;
 import java.util.List;
 
-public class PracticeForms extends SharedData {
+public class PracticeForms extends ShareData {
 
     ElementsMethod elementsMethod;
 
     @Test
     public void metodaTest() {
 
+        //Deschidem un browser
+
         elementsMethod = new ElementsMethod(driver);
 
         WebElement formsMeniu = driver.findElement(By.xpath("//h5[text()='Forms']"));
-        elementsMethod.clickElement(formsMeniu);
+        elementsMethod.javaScriptElement(formsMeniu);
 
         WebElement practiceForm = driver.findElement(By.xpath("//span[text()='Practice Form']"));
         elementsMethod.clickElement(practiceForm);
@@ -40,10 +33,12 @@ public class PracticeForms extends SharedData {
         elementsMethod.fillElement(lastNameElement, "Cash");
 
         WebElement userEmailElement = driver.findElement(By.id("userEmail"));
-        elementsMethod.fillElement(userEmailElement, "johnycash12n@gmail.com");
+        elementsMethod.fillElement(userEmailElement,"mail@mail.com");
 
         WebElement mobileElement = driver.findElement(By.id("userNumber"));
-        elementsMethod.fillElement(mobileElement, "0745213252");
+        elementsMethod.fillElement(mobileElement, "0746430354");
+
+//        Date of birth interaction
 
         WebElement dateOfBirth = driver.findElement(By.id("dateOfBirthInput"));
         elementsMethod.clickElement(dateOfBirth);
@@ -56,12 +51,15 @@ public class PracticeForms extends SharedData {
 
         String dayValue = "15";
         List<WebElement> daysList = driver.findElements(By.xpath("//div[contains(@class,'react-datepicker__day--0') and not(contains(@class,'outside-month'))]"));
-        for (int index = 0; index < daysList.size(); index++) {
+        for (int index=0; index<daysList.size();index++) {
             if (daysList.get(index).getText().equals(dayValue)) {
                 elementsMethod.clickElement(daysList.get(index));
                 break;
             }
         }
+
+
+
 
 
 //        WebElement currentAdressElement = driver.findElement(By.id("currentAddress"));
@@ -161,8 +159,8 @@ public class PracticeForms extends SharedData {
 //        Assert.assertEquals(valueList.get(3).getText(),mobile);
 
 
+
+
     }
 
 }
-
-

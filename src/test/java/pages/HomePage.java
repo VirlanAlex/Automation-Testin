@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BasePage {
+public class HomePage extends BasePage{
 
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
     public WebElement alertFrameWindowMenu;
@@ -25,4 +25,5 @@ public class HomePage extends BasePage {
     public void clickElementsMenu(){
         elementsMethod.javaScriptElement(elementsMenu);
     }
+
 }

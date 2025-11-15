@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ElementsPage extends BasePage {
-
-    @FindBy(xpath = "//span[text()='Web Tables']")
-    public WebElement webTableSubMenu;
-
+public class ElementsPage extends BasePage{
     public ElementsPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickWebTable(){elementsMethod.javaScriptElement(webTableSubMenu);
+    @FindBy(xpath = "//span[text()='Web Tables']")
+    public WebElement webTableSubmenu;
+
+    public void  clickWebTable(){
+        elementsMethod.javaScriptElement(webTableSubmenu);
     }
 }

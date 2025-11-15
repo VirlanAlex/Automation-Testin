@@ -9,20 +9,21 @@ import org.openqa.selenium.support.PageFactory;
 
 public class FramesPage extends BasePage {
 
+
     @FindBy(xpath = "//span[text()='Frames']")
-    public WebElement frameButton;
+    public WebElement framesButton;
 
     public FramesPage(WebDriver driver) {
         super(driver);
     }
 
     public void clickFramesButton(){
-        elementsMethod.javaScriptElement(frameButton);
+        elementsMethod.javaScriptElement(framesButton);
     }
 
     public void switchFrames(String frame1, String frame2){
         frameMethods.switchToSpecificFrame(frame1);
-        frameMethods.switchToParentFrame();
+        frameMethods.switchToParent();
         frameMethods.switchToSpecificFrame(frame2);
     }
 }

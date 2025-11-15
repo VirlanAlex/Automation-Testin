@@ -16,7 +16,7 @@ public class FrameMethods {
         driver.switchTo().frame(frame);
     }
 
-    public void switchToParentFrame(){
+    public void switchToParent(){
         driver.switchTo().parentFrame();
     }
 }

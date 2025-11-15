@@ -14,6 +14,8 @@ public class AlertWindows {
     public ElementsMethod elementsMethod;
     public AlertMethods alertMethods;
 
+
+
     public AlertWindows(WebDriver driver) {
         this.driver = driver;
         elementsMethod = new ElementsMethod(this.driver);
@@ -50,10 +52,12 @@ public class AlertWindows {
 
         WebElement secondAlert = driver.findElement(By.id("timerAlertButton"));
         elementsMethod.clickElement(secondAlert);
+
         alertMethods.acceptAlert();
 
         WebElement thirdAlertElement = driver.findElement(By.id("confirmButton"));
         elementsMethod.clickElement(thirdAlertElement);
+
         boolean chooseAccept = true;  // pune false daca vrei Cancel
         alertMethods.acceptAlert(chooseAccept);
 
