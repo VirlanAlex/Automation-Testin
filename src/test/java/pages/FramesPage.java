@@ -11,7 +11,7 @@ public class FramesPage extends BasePage {
 
 
     @FindBy(xpath = "//span[text()='Frames']")
-    public WebElement framesButton;
+    private WebElement framesButton;
 
     public FramesPage(WebDriver driver) {
         super(driver);

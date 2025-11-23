@@ -13,58 +13,58 @@ import java.util.List;
 public class WebTablesPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
-    public List<WebElement> tableContentList;
+    private List<WebElement> tableContentList;
 
     @FindBy(id = "addNewRecordButoon")
-    public WebElement addElement;
+    private WebElement addElement;
 
     @FindBy(id = "firstName")
-    public WebElement firstNameElement;
+    private WebElement firstNameElement;
 
     @FindBy(id = "lastName")
-    public WebElement lastNameElement;
+    private WebElement lastNameElement;
 
     @FindBy(id = "userEmail")
-    public WebElement userEmailElement;
+    private WebElement userEmailElement;
 
     @FindBy(id = "age")
-    public WebElement ageElement;
+    private WebElement ageElement;
 
     @FindBy(id = "salary")
-    public WebElement salaryElement;
+    private WebElement salaryElement;
 
     @FindBy(id = "department")
-    public WebElement departmentElement;
+    private WebElement departmentElement;
 
     @FindBy(id = "submit")
-    public WebElement submitButton;
+    private WebElement submitButton;
 
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
-    public List<WebElement> continutTabelNou;
+    private List<WebElement> continutTabelNou;
 
     @FindBy(xpath = "edit-record-4")
-    public WebElement editElement;
+    private WebElement editElement;
 
     @FindBy(xpath = "editFirstNameElement")
-    public WebElement editFirstNameElement;
+    private WebElement editFirstNameElement;
 
     @FindBy(xpath = "lastName")
-    public WebElement editLastNameElement;
+    private WebElement editLastNameElement;
 
     @FindBy(xpath = "userEmail")
-    public WebElement editEmailElement;
+    private WebElement editEmailElement;
 
     @FindBy(xpath = "age")
-    public WebElement editAgeElement;
+    private WebElement editAgeElement;
 
     @FindBy(xpath = "salary")
-    public WebElement editSalaryElement;
+    private WebElement editSalaryElement;
 
     @FindBy(xpath = "delete-record-4")
-    public WebElement deleteElement;
+    private WebElement deleteElement;
 
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
-    public List<WebElement> continutTabelSters;
+    private List<WebElement> continutTabelSters;
 
     public WebTablesPage(WebDriver driver) {
         super(driver);

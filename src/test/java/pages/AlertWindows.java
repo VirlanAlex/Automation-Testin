@@ -24,22 +24,22 @@ public class AlertWindows {
     }
 
     @FindBy(xpath = "//span[text()='Alerts']")
-    public WebElement alert;
+    private WebElement alert;
 
     @FindBy(id = "alertButton")
-    public WebElement firstAlertElement;
+    private WebElement firstAlertElement;
 
     @FindBy(id ="timerAlertButton")
-    public WebElement secondAlert;
+    private WebElement secondAlert;
 
     @FindBy(id = "confirmButton")
-    public WebElement thirdAlertElement;
+    private WebElement thirdAlertElement;
 
     @FindBy(id = "confirmResult")
-    public WebElement textThirdAlert;
+    private WebElement textThirdAlert;
 
     @FindBy(id = "promtButton")
-    public WebElement fourthAlertElement;
+    private WebElement fourthAlertElement;
 
     public void clickAlert(){
         elementsMethod.javaScriptElement(alert);

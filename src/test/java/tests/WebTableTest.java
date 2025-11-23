@@ -22,15 +22,15 @@ public class WebTableTest extends ShareData {
     @Test
     public void metodaTest() {
 
-        elementsMethod = new ElementsMethod(driver);
+        elementsMethod = new ElementsMethod(getDriver());
 
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.clickElementsMenu();
 
-        ElementsPage elementsPage = new ElementsPage(driver);
+        ElementsPage elementsPage = new ElementsPage(getDriver());
         elementsPage.clickWebTable();
 
-        WebTablesPage webTablePage = new WebTablesPage(driver);
+        WebTablesPage webTablePage = new WebTablesPage(getDriver());
         webTablePage.createProcess();
 
         //Functionalitate de edit

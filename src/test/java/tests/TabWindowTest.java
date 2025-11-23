@@ -23,16 +23,16 @@ public class TabWindowTest extends ShareData {
 
     public void metodaTest() {
 
-        elementsMethod = new ElementsMethod(driver);
-        tabMethods = new TabMethods(driver);
+        elementsMethod = new ElementsMethod(getDriver());
+        tabMethods = new TabMethods(getDriver());
 
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.clickAlertFrameWindow();
 
-        WebElement tabButton = driver.findElement(By.xpath("//span[text()='Browser Windows']"));
+        WebElement tabButton = getDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
         elementsMethod.javaScriptElement(tabButton);
 
-        WebElement newTabButton = driver.findElement(By.id("tabButton"));
+        WebElement newTabButton = getDriver().findElement(By.id("tabButton"));
         elementsMethod.clickElement(newTabButton);
 
         tabMethods.switchSpecificTab(1);
@@ -40,7 +40,7 @@ public class TabWindowTest extends ShareData {
         tabMethods.closeCurrentTab();
         tabMethods.switchSpecificTab(0);
 
-        WebElement newWindowElement = driver.findElement(By.id("windowButton"));
+        WebElement newWindowElement = getDriver().findElement(By.id("windowButton"));
         elementsMethod.javaScriptElement(newWindowElement);
         tabMethods.switchSpecificTab(1);
     }

@@ -20,13 +20,13 @@ public class FramesTest extends ShareData {
     public void metodaTest() {
         //Deschidem un browser
 
-        elementsMethod = new ElementsMethod(driver);
-        frameMethods = new FrameMethods(driver);
+        elementsMethod = new ElementsMethod(getDriver());
+        frameMethods = new FrameMethods(getDriver());
 
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.clickAlertFrameWindow();
 
-        FramesPage frames = new FramesPage(driver);
+        FramesPage frames = new FramesPage(getDriver());
         frames.clickFramesButton();
         frames.switchFrames("frame1", "frame2");
     }

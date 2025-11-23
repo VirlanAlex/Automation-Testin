@@ -18,39 +18,39 @@ public class PracticeForms extends ShareData {
 
         //Deschidem un browser
 
-        elementsMethod = new ElementsMethod(driver);
+        elementsMethod = new ElementsMethod(getDriver());
 
-        WebElement formsMeniu = driver.findElement(By.xpath("//h5[text()='Forms']"));
+        WebElement formsMeniu = getDriver().findElement(By.xpath("//h5[text()='Forms']"));
         elementsMethod.javaScriptElement(formsMeniu);
 
-        WebElement practiceForm = driver.findElement(By.xpath("//span[text()='Practice Form']"));
+        WebElement practiceForm = getDriver().findElement(By.xpath("//span[text()='Practice Form']"));
         elementsMethod.clickElement(practiceForm);
 
-        WebElement firstNameElement = driver.findElement(By.id("firstName"));
+        WebElement firstNameElement = getDriver().findElement(By.id("firstName"));
         elementsMethod.fillElement(firstNameElement, "Johny");
 
-        WebElement lastNameElement = driver.findElement(By.id("lastName"));
+        WebElement lastNameElement = getDriver().findElement(By.id("lastName"));
         elementsMethod.fillElement(lastNameElement, "Cash");
 
-        WebElement userEmailElement = driver.findElement(By.id("userEmail"));
+        WebElement userEmailElement = getDriver().findElement(By.id("userEmail"));
         elementsMethod.fillElement(userEmailElement,"mail@mail.com");
 
-        WebElement mobileElement = driver.findElement(By.id("userNumber"));
+        WebElement mobileElement = getDriver().findElement(By.id("userNumber"));
         elementsMethod.fillElement(mobileElement, "0746430354");
 
 //        Date of birth interaction
 
-        WebElement dateOfBirth = driver.findElement(By.id("dateOfBirthInput"));
+        WebElement dateOfBirth = getDriver().findElement(By.id("dateOfBirthInput"));
         elementsMethod.clickElement(dateOfBirth);
 
-        WebElement monthElement = driver.findElement(By.className("react-datepicker__month-select"));
+        WebElement monthElement = getDriver().findElement(By.className("react-datepicker__month-select"));
         elementsMethod.dropDownElement(monthElement, "January");
 
-        WebElement yearElement = driver.findElement(By.className("react-datepicker__year-select"));
+        WebElement yearElement = getDriver().findElement(By.className("react-datepicker__year-select"));
         elementsMethod.dropDownElement(yearElement, "2030");
 
         String dayValue = "15";
-        List<WebElement> daysList = driver.findElements(By.xpath("//div[contains(@class,'react-datepicker__day--0') and not(contains(@class,'outside-month'))]"));
+        List<WebElement> daysList = getDriver().findElements(By.xpath("//div[contains(@class,'react-datepicker__day--0') and not(contains(@class,'outside-month'))]"));
         for (int index=0; index<daysList.size();index++) {
             if (daysList.get(index).getText().equals(dayValue)) {
                 elementsMethod.clickElement(daysList.get(index));

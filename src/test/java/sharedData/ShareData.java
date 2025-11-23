@@ -7,7 +7,11 @@ import org.testng.annotations.BeforeMethod;
 
 public class ShareData {
 
-    public WebDriver driver;
+    private WebDriver driver;
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeMethod
     public void setupEnviroment() {
