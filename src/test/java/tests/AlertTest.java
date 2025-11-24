@@ -8,11 +8,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AlertWindows;
 import pages.HomePage;
+import sharedData.Hooks;
 import sharedData.ShareData;
 
 import java.time.Duration;
 
-public class AlertTest extends ShareData {
+public class AlertTest extends Hooks {
 
     ElementsMethod elementsMethod;
     AlertMethods alertsMethods;

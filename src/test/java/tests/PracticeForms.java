@@ -5,11 +5,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import sharedData.Hooks;
 import sharedData.ShareData;
 
 import java.util.List;
 
-public class PracticeForms extends ShareData {
+public class PracticeForms extends Hooks {
 
     ElementsMethod elementsMethod;
 

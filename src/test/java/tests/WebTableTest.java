@@ -11,11 +11,12 @@ import org.testng.annotations.Test;
 import pages.ElementsPage;
 import pages.HomePage;
 import pages.WebTablesPage;
+import sharedData.Hooks;
 import sharedData.ShareData;
 
 import java.util.List;
 
-public class WebTableTest extends ShareData {
+public class WebTableTest extends Hooks {
 
     ElementsMethod elementsMethod;
 

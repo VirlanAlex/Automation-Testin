@@ -9,12 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import sharedData.Hooks;
 import sharedData.ShareData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabWindowTest extends ShareData {
+public class TabWindowTest extends Hooks {
 
     ElementsMethod elementsMethod;
     TabMethods tabMethods;

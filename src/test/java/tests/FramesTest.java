@@ -9,9 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import pages.FramesPage;
 import pages.HomePage;
+import sharedData.Hooks;
 import sharedData.ShareData;
 
-public class FramesTest extends ShareData {
+public class FramesTest extends Hooks {
     ElementsMethod elementsMethod;
     FrameMethods frameMethods;
 

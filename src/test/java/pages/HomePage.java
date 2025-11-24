@@ -20,10 +20,12 @@ public class HomePage extends BasePage{
 
     public void clickAlertFrameWindow(){
         elementsMethod.javaScriptElement(alertFrameWindowMenu);
+        loggerUtility.infoLog(" The user clicks on Alert, Frame & Windows");
     }
 
     public void clickElementsMenu(){
         elementsMethod.javaScriptElement(elementsMenu);
+        loggerUtility.infoLog(" The user clicks on Elements menu");
     }
 
 }
