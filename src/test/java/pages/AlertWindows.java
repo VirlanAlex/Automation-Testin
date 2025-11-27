@@ -2,6 +2,8 @@ package pages;
 
 import helpMethods.AlertMethods;
 import helpMethods.ElementsMethod;
+import modelObject.AlertModel;
+import modelObject.WebTableModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,8 +48,9 @@ public class AlertWindows extends BasePage {
         elementsMethod.javaScriptElement(alert);
         loggerUtility.infoLog(" The user clicks on Alert Submenu");
     }
+    AlertModel testData = new AlertModel("src/test/resources/inputData/AlertResource.json");
 
-    public  void dealAlertProcess(){
+    public  void dealAlertProcess(AlertModel testData){
         WebElement firstAlertElement = driver.findElement(By.id("alertButton"));
         elementsMethod.clickElement(firstAlertElement);
         loggerUtility.infoLog(" The user clicks on First Alert Element");
@@ -77,7 +80,7 @@ public class AlertWindows extends BasePage {
         WebElement fourthAlertElement = driver.findElement(By.id("promtButton"));
         elementsMethod.clickElement(fourthAlertElement);
         loggerUtility.infoLog(" The user clicks on the Fourth Alert Element");
-        alertMethods.fillAlert("Buna ziua");
+        alertMethods.fillAlert(testData.getAlertText());
         loggerUtility.infoLog(" The user fills the alert displayed");
 
     }

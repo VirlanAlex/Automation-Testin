@@ -1,6 +1,7 @@
 package tests;
 
 import helpMethods.ElementsMethod;
+import modelObject.WebTableModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,7 @@ public class WebTableTest extends Hooks {
     @Test
     public void metodaTest() {
 
+        WebTableModel testData = new WebTableModel("src/test/resources/inputData/WebTableResource.json");
         elementsMethod = new ElementsMethod(getDriver());
 
         HomePage homePage = new HomePage(getDriver());
@@ -32,7 +34,7 @@ public class WebTableTest extends Hooks {
         elementsPage.clickWebTable();
 
         WebTablesPage webTablePage = new WebTablesPage(getDriver());
-        webTablePage.createProcess();
+        webTablePage.createProcess(testData);
 
         //Functionalitate de edit
 

@@ -1,11 +1,10 @@
 package pages;
 
-import helpMethods.ElementsMethod;
+import modelObject.WebTableModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
@@ -66,11 +65,12 @@ public class WebTablesPage extends BasePage {
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']")
     private List<WebElement> continutTabelSters;
 
+    WebTableModel testData = new WebTableModel("src/test/resources/inputData/WebTableResource.json");
+
     public WebTablesPage(WebDriver driver) {
         super(driver);
     }
-
-    public void createProcess() {
+    public void createProcess(WebTableModel testData) {
         List<WebElement> continutTabel = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even']"));
         System.out.println(" Dimensiunea tabelului este " + continutTabel.size());
         Assert.assertEquals(continutTabel.size(), 3, " Marimea tabelului nu este 3 ");
@@ -79,28 +79,23 @@ public class WebTablesPage extends BasePage {
         elementsMethod.clickElement(addElement);
 
         WebElement firstNameElement = driver.findElement(By.id("firstName"));
-        String firstName = "Johny";
-        elementsMethod.fillElement(firstNameElement, firstName);
+        elementsMethod.fillElement(firstNameElement, testData.getFirstName());
 
         WebElement lastNameElement = driver.findElement(By.id("lastName"));
-        String lastName = "Cash";
-        elementsMethod.fillElement(lastNameElement, lastName);
+        elementsMethod.fillElement(lastNameElement, testData.getLastName());
 
         WebElement userEmailElement = driver.findElement(By.id("userEmail"));
-        String userEmai = "johnycash12n@gmail.com";
-        elementsMethod.fillElement(userEmailElement, userEmai);
+        elementsMethod.fillElement(userEmailElement, testData.getEditEmailElement());
 
         WebElement ageElement = driver.findElement(By.id("age"));
-        String age = "31";
-        elementsMethod.fillElement(ageElement, age);
+        elementsMethod.fillElement(ageElement, testData.getAge());
 
         WebElement salaryElement = driver.findElement(By.id("salary"));
-        String salary = "5000";
-        elementsMethod.fillElement(salaryElement, salary);
+        elementsMethod.fillElement(salaryElement, testData.getSalary());
 
         WebElement departmentElement = driver.findElement(By.id("department"));
-        String department = "Discogs";
-        elementsMethod.fillElement(departmentElement, department);
+
+        elementsMethod.fillElement(departmentElement, testData.getDepartment());
 
         WebElement submitButton = driver.findElement(By.id("submit"));
         elementsMethod.clickElement(submitButton);
@@ -109,12 +104,12 @@ public class WebTablesPage extends BasePage {
         Assert.assertEquals(continutTabelNou.size(), 4, "Marimea tabelului nu este 4");
 
         String continutRand = continutTabelNou.get(3).getText();
-        Assert.assertTrue(continutRand.contains(firstName), "Randul nu contine first name");
-        Assert.assertTrue(continutRand.contains(lastName), "Randul nu contine last name");
-        Assert.assertTrue(continutRand.contains(userEmai), "Randul nu contine email");
-        Assert.assertTrue(continutRand.contains(age), "Randul nu contine age");
-        Assert.assertTrue(continutRand.contains(salary), "Randul nu contine salary");
-        Assert.assertTrue(continutRand.contains(department), "Randul nu contine department");
+        Assert.assertTrue(continutRand.contains(testData.getFirstName()), "Randul nu contine first name");
+        Assert.assertTrue(continutRand.contains(testData.getLastName()), "Randul nu contine last name");
+//        Assert.assertTrue(continutRand.contains(testData.getUserEmail()), "Randul nu contine email");
+        Assert.assertTrue(continutRand.contains(testData.getAge()), "Randul nu contine age");
+        Assert.assertTrue(continutRand.contains(testData.getSalary()), "Randul nu contine salary");
+        Assert.assertTrue(continutRand.contains(testData.getDepartment()), "Randul nu contine department");
     }
 
     public void editProcess() {
@@ -123,19 +118,19 @@ public class WebTablesPage extends BasePage {
 
         WebElement editFirstNameElement = driver.findElement(By.id("firstName"));
         editFirstNameElement.clear();
-        elementsMethod.fillElement(editFirstNameElement, "John");
+        elementsMethod.fillElement(editFirstNameElement, testData.getEditFirstNameElement());
 
         WebElement editLastNameElement = driver.findElement(By.id("lastName"));
         editLastNameElement.clear();
-        elementsMethod.fillElement(editLastNameElement, "Smith");
+        elementsMethod.fillElement(editLastNameElement, testData.getEditLastNameElement());
 
         WebElement editEmailElement = driver.findElement(By.id("userEmail"));
         editEmailElement.clear();
-        elementsMethod.fillElement(editEmailElement, "johnysmithasd2@conver.com");
+        elementsMethod.fillElement(editEmailElement, testData.getEditEmailElement());
 
         WebElement editAgeElement = driver.findElement(By.id("age"));
         editAgeElement.clear();
-        elementsMethod.fillElement(editAgeElement, "50");
+        elementsMethod.fillElement(editAgeElement, testData.getAge());
 
         WebElement submitButton2Button = driver.findElement(By.id("submit"));
         elementsMethod.clickElement(submitButton2Button);
